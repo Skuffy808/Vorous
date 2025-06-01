@@ -14,6 +14,3 @@ shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(44, 291)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
