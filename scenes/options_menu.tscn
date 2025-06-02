@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://beedokpp6n7cc"]
+[gd_scene load_steps=5 format=3 uid="uid://beedokpp6n7cc"]
 
-[ext_resource type="Script" uid="uid://6k8u6dj3241g" path="res://scenes/options_menu.gd" id="1_ijpji"]
+[ext_resource type="Script" uid="uid://6k8u6dj3241g" path="res://scripts/options_menu.gd" id="1_ijpji"]
+[ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="1_lfjc7"]
 [ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="2_hm4m4"]
 [ext_resource type="Script" uid="uid://dfpju7kxd2veh" path="res://scripts/voloume_slider.gd" id="3_hm4m4"]
 
 [node name="OptionsMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lfjc7")
 script = ExtResource("1_ijpji")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
