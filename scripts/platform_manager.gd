@@ -10,11 +10,11 @@ var spawn_new_pos := 640
 
 func spawn_random_platform():
 	var platformRNG = randi_range(1, 10)
-	if platformRNG > 5:
+	if platformRNG >= 6:
 		var new_platform = PLATFORM_1.instantiate()
 		new_platform.position.x = spawn_new_pos * 2
 		add_child(new_platform)
-	elif platformRNG < 5:
+	elif platformRNG <= 5:
 		var new_platform = PLATFORM_2.instantiate()
 		new_platform.position.x = spawn_new_pos * 2
 		add_child(new_platform)
