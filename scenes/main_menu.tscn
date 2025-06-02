@@ -40,3 +40,4 @@ layout_mode = 2
 text = "Credits"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

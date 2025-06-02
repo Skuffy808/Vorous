@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://beedokpp6n7cc"]
+
+[ext_resource type="Script" uid="uid://6k8u6dj3241g" path="res://scenes/options_menu.gd" id="1_ijpji"]
+[ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="2_hm4m4"]
+[ext_resource type="Script" uid="uid://dfpju7kxd2veh" path="res://scripts/voloume_slider.gd" id="3_hm4m4"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ijpji")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_hm4m4")
+
+[node name="VolumeLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume:"
+
+[node name="MainLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main"
+
+[node name="MainSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_hm4m4")
+bus_name = "Master"
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_hm4m4")
+bus_name = "Music"
+
+[node name="SFXLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_hm4m4")
+bus_name = "SFX"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]
