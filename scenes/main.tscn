@@ -1,19 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://0x3sraf7natj"]
+[gd_scene load_steps=4 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_o5qli"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
-distance = -327.0
+[ext_resource type="PackedScene" uid="uid://dfp2xnn0yqtxe" path="res://scenes/Platforms/platform_1.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://dtxm1cwjnn6pq" path="res://scripts/platform_manager.gd" id="2_sugp2"]
 
 [node name="Main" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_0wfyh")
-
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(44, 291)
+position = Vector2(320, 281)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
+position = Vector2(0, -101)
+limit_top = 0
+limit_bottom = 0
+
+[node name="PlatformManager" type="Node" parent="."]
+script = ExtResource("2_sugp2")
+
+[node name="Platform1" parent="PlatformManager" instance=ExtResource("2_0wfyh")]
