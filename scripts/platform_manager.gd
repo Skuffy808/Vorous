@@ -1,6 +1,5 @@
 extends Node
 
-@onready var platform_1: Node2D = $Platform1
 @onready var player: CharacterBody2D = $"../Player"
 
 const PLATFORM_1 = preload("res://scenes/Platforms/platform_1.tscn")

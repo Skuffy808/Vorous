@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=8 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://dtxm1cwjnn6pq" path="res://scripts/platform_manager.gd" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://dfp2xnn0yqtxe" path="res://scenes/Platforms/platform_1.tscn" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://dipmprigxnjfv" path="res://scripts/stopwatch.gd" id="4_iywne"]
+[ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="4_lbhrr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+texture = ExtResource("3_lnu2h")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_iywne"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
 [node name="Game" type="Node2D"]
 
@@ -17,4 +32,28 @@ limit_bottom = 0
 [node name="PlatformManager" type="Node" parent="."]
 script = ExtResource("2_lbhrr")
 
-[node name="Platform1" parent="PlatformManager" instance=ExtResource("3_iywne")]
+[node name="StarterPlatform" type="Node2D" parent="PlatformManager"]
+
+[node name="TileMap" type="TileMap" parent="PlatformManager/StarterPlatform"]
+texture_filter = 1
+position = Vector2(0, 8)
+tile_set = SubResource("TileSet_iywne")
+format = 2
+layer_0/tile_data = PackedInt32Array(655399, 0, 1, 655398, 0, 1, 655397, 0, 1, 655396, 0, 1, 655395, 0, 1, 655393, 0, 1, 655394, 0, 1, 589863, 0, 0, 589857, 0, 1, 589858, 0, 1, 589859, 0, 1, 589860, 0, 1, 589861, 0, 1, 589862, 0, 1, 589824, 0, 1, 655360, 0, 1, 589825, 0, 1, 655361, 0, 1, 589826, 0, 1, 655362, 0, 1, 589827, 0, 1, 655363, 0, 1, 589828, 0, 1, 655364, 0, 1, 589829, 0, 1, 655365, 0, 1, 589830, 0, 1, 655366, 0, 1, 589835, 0, 1, 655371, 0, 1, 589836, 0, 1, 655372, 0, 1, 589837, 0, 1, 655373, 0, 1, 589838, 0, 1, 655374, 0, 1, 589839, 0, 1, 655375, 0, 1, 589840, 0, 1, 655376, 0, 1, 589841, 0, 1, 655377, 0, 1, 589842, 0, 1, 655378, 0, 1, 589843, 0, 1, 655379, 0, 1, 589844, 0, 1, 655380, 0, 1, 589845, 0, 1, 655381, 0, 1, 589846, 0, 1, 655382, 0, 1, 589847, 0, 1, 655383, 0, 1, 589848, 0, 1, 655384, 0, 1, 589849, 0, 1, 655385, 0, 1, 589850, 0, 1, 655386, 0, 1, 589852, 0, 1, 655388, 0, 1, 589853, 0, 1, 655389, 0, 1, 589854, 0, 1, 655390, 0, 1, 589855, 0, 1, 655391, 0, 1, 589856, 0, 1, 655392, 0, 1, 589831, 0, 1, 655367, 0, 1, 589832, 0, 1, 655368, 0, 1, 589833, 0, 1, 655369, 0, 1, 589834, 0, 1, 655370, 0, 1, 589851, 0, 1, 655387, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Stopwatch" type="Node" parent="CanvasLayer"]
+script = ExtResource("4_iywne")
+
+[node name="Label" type="Label" parent="CanvasLayer/Stopwatch"]
+offset_left = 297.0
+offset_top = 8.0
+offset_right = 337.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+theme = ExtResource("4_lbhrr")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "11:11:23"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
