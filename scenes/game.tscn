@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=10 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dnsh31yhrttin" path="res://scenes/worm.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://dtxm1cwjnn6pq" path="res://scripts/platform_manager.gd" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://cndkupxxkeebu" path="res://scripts/camera_zoom.gd" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://dipmprigxnjfv" path="res://scripts/stopwatch.gd" id="4_iywne"]
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="4_lbhrr"]
 
@@ -29,9 +30,7 @@ position = Vector2(0, 281)
 position = Vector2(320, 281)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -101)
-limit_top = 0
-limit_bottom = 0
+script = ExtResource("3_u5sy4")
 
 [node name="PlatformManager" type="Node" parent="."]
 script = ExtResource("2_lbhrr")
