@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+var speed = 200.0
 const JUMP_VELOCITY = -250.0
 
 var can_double_jump := false
@@ -25,8 +25,8 @@ func _physics_process(delta: float) -> void:
 	# Move right constantly
 	var direction := 1
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=13 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://dnsh31yhrttin" path="res://scenes/worm.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://dtxm1cwjnn6pq" path="res://scripts/platform_manager.gd" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dipmprigxnjfv" path="res://scripts/stopwatch.gd" id="4_iywne"]
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://b3idjy5hsfcdx" path="res://scripts/worm.gd" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://c1ixcbxul3c35" path="res://assets/wall_placeholder_tileset.png" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://ch8e3q2mj8wg0" path="res://assets/wormMain.png" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -20,10 +22,18 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
+texture = ExtResource("7_gee14")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
 
-[node name="Worm" parent="." instance=ExtResource("1_p57ef")]
-position = Vector2(0, 281)
+[sub_resource type="TileSet" id="TileSet_vtaks"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_0tnpc")
+
+[node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lnu2h")]
 position = Vector2(320, 281)
@@ -61,3 +71,18 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "11:11:23"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Worm" type="Node2D" parent="."]
+script = ExtResource("6_u5sy4")
+
+[node name="TileMap" type="TileMap" parent="Worm"]
+texture_filter = 1
+position = Vector2(0, 8)
+tile_set = SubResource("TileSet_vtaks")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65535, 0, 0, -65534, 65536, 0, -65533, 131072, 0, 1, 0, 0, 2, 65536, 0, 3, 131072, 0, 65537, 0, 0, 65538, 65536, 0, 65539, 131072, 0, 131073, 0, 0, 131074, 65536, 0, 131075, 131072, 0, 196609, 0, 0, 196610, 65536, 0, 196611, 131072, 0, 262145, 0, 0, 262146, 65536, 0, 262147, 131072, 0, 327681, 0, 0, 327682, 65536, 0, 327683, 131072, 0, 393217, 0, 0, 393218, 65536, 0, 393219, 131072, 0, 458753, 0, 0, 458754, 65536, 0, 458755, 131072, 0, 524289, 0, 0, 524290, 65536, 0, 524291, 131072, 0, 589825, 0, 0, 589826, 65536, 0, 589827, 131072, 0, 655361, 0, 0, 655362, 65536, 0, 655363, 131072, 0, -851967, 0, 0, -786431, 0, 0, -720895, 0, 0, -655359, 0, 0, -589823, 0, 0, -524287, 0, 0, -458751, 0, 0, -393215, 0, 0, -327679, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -851966, 65536, 0, -786430, 65536, 0, -720894, 65536, 0, -655358, 65536, 0, -589822, 65536, 0, -524286, 65536, 0, -458750, 65536, 0, -393214, 65536, 0, -327678, 65536, 0, -262142, 65536, 0, -196606, 65536, 0, -131070, 65536, 0, -851965, 131072, 0, -786429, 131072, 0, -720893, 131072, 0, -655357, 131072, 0, -589821, 131072, 0, -524285, 131072, 0, -458749, 131072, 0, -393213, 131072, 0, -327677, 131072, 0, -262141, 131072, 0, -196605, 131072, 0, -131069, 131072, 0, 720897, 0, 0, 786433, 0, 0, 851969, 0, 0, 917505, 0, 0, 983041, 0, 0, 1048577, 0, 0, 1114113, 0, 0, 1179649, 0, 0, 1245185, 0, 0, 1310721, 0, 0, 1376257, 0, 0, 1441793, 0, 0, 720898, 65536, 0, 786434, 65536, 0, 851970, 65536, 0, 917506, 65536, 0, 983042, 65536, 0, 1048578, 65536, 0, 1114114, 65536, 0, 1179650, 65536, 0, 1245186, 65536, 0, 1310722, 65536, 0, 1376258, 65536, 0, 1441794, 65536, 0, 720899, 131072, 0, 786435, 131072, 0, 851971, 131072, 0, 917507, 131072, 0, 983043, 131072, 0, 1048579, 131072, 0, 1114115, 131072, 0, 1179651, 131072, 0, 1245187, 131072, 0, 1310723, 131072, 0, 1376259, 131072, 0, 1441795, 131072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Worm"]
+texture_filter = 1
+position = Vector2(144, 152)
+texture = ExtResource("8_gee14")
