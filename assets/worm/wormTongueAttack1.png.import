@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clt2yqf80mg1c"
-path="res://.godot/imported/wormTongueAttack1.png-3a674a2fd425f944e051adc06e871b8d.ctex"
+path="res://.godot/imported/wormTongueAttack1.png-7c35b7363ca0faa41bcfd1accd7cbdd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wormTongueAttack1.png"
-dest_files=["res://.godot/imported/wormTongueAttack1.png-3a674a2fd425f944e051adc06e871b8d.ctex"]
+source_file="res://assets/worm/wormTongueAttack1.png"
+dest_files=["res://.godot/imported/wormTongueAttack1.png-7c35b7363ca0faa41bcfd1accd7cbdd9.ctex"]
 
 [params]
 

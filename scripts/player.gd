@@ -1,32 +1,25 @@
 extends CharacterBody2D
 
-var speed = 200.0
-const JUMP_VELOCITY = -250.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var can_double_jump := false
+var speed = 200.0
+const JUMP_VELOCITY = -300.0
+var jumped = false
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Reset double jump when on the floor
-	if is_on_floor():
-		can_double_jump = true
-
-	# Handle jump
-	if Input.is_action_just_pressed("ui_accept"):
-		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
-		elif can_double_jump:
-			velocity.y = JUMP_VELOCITY
-			can_double_jump = false
-
-	# Move right constantly
-	var direction := 1
-	if direction:
-		velocity.x = direction * speed
+		if jumped:
+			animated_sprite_2d.play("jump")
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		if jumped:
+			jumped = false
+		animated_sprite_2d.play("run")
 
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		jumped = true
+
+	velocity.x = speed
 	move_and_slide()

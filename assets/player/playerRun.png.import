@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjws1epxiv7dk"
-path="res://.godot/imported/wormTongueIdle.png-47e94efca37e2d7c9136d60f5e3bdb0d.ctex"
+uid="uid://c7oga3pbh6bol"
+path="res://.godot/imported/playerRun.png-b384a18de6541096e0b6f97c19bc687e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wormTongueIdle.png"
-dest_files=["res://.godot/imported/wormTongueIdle.png-47e94efca37e2d7c9136d60f5e3bdb0d.ctex"]
+source_file="res://assets/player/playerRun.png"
+dest_files=["res://.godot/imported/playerRun.png-b384a18de6541096e0b6f97c19bc687e.ctex"]
 
 [params]
 
