@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=11 format=3 uid="uid://ctho4ks2kncyt"]
 
+[ext_resource type="PackedScene" uid="uid://cwy01wfbsb1vk" path="res://scenes/parallax_background.tscn" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dnsh31yhrttin" path="res://scenes/worm.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://dtxm1cwjnn6pq" path="res://scripts/platform_manager.gd" id="2_lbhrr"]
@@ -398,9 +399,13 @@ sources/1 = SubResource("TileSetAtlasSource_u5sy4")
 
 [node name="Game" type="Node2D"]
 
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_gee14")]
+offset = Vector2(0, -64)
+transform = Transform2D(1, 0, 0, 1, 0, -64)
+
 [node name="Worm" parent="." instance=ExtResource("1_p57ef")]
 z_index = 1
-position = Vector2(0, 281)
+position = Vector2(59, 149)
 
 [node name="PlatformManager" type="Node" parent="."]
 script = ExtResource("2_lbhrr")
