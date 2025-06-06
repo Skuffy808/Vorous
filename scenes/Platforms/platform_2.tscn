@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfocufefeprx4"]
+[gd_scene load_steps=7 format=3 uid="uid://deillyve210tx"]
 
 [ext_resource type="Texture2D" uid="uid://xy2kjly8tpq0" path="res://assets/platformBaseTileset16x.png" id="1_ugnlc"]
 [ext_resource type="Texture2D" uid="uid://7algcmje17xu" path="res://assets/platformBackgroundTileset16x.png" id="2_s4rnq"]
