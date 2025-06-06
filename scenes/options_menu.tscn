@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://beedokpp6n7cc"]
+[gd_scene load_steps=6 format=3 uid="uid://beedokpp6n7cc"]
 
 [ext_resource type="Script" uid="uid://6k8u6dj3241g" path="res://scripts/options_menu.gd" id="1_ijpji"]
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="1_lfjc7"]
-[ext_resource type="Texture2D" uid="uid://dmh1j8mp84kcr" path="res://assets/placeholder-tileset.png" id="2_hm4m4"]
 [ext_resource type="Script" uid="uid://dfpju7kxd2veh" path="res://scripts/voloume_slider.gd" id="3_hm4m4"]
+[ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="4_lfjc7"]
+[ext_resource type="PackedScene" uid="uid://dhr8pf2btgxph" path="res://scenes/Platforms/platformCave1.tscn" id="5_3xsyx"]
 
 [node name="OptionsMenu" type="Control"]
 texture_filter = 1
@@ -16,6 +17,25 @@ grow_vertical = 2
 theme = ExtResource("1_lfjc7")
 script = ExtResource("1_ijpji")
 
+[node name="Cave1" parent="." instance=ExtResource("5_3xsyx")]
+z_index = -1
+position = Vector2(0, 180)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -180.0
+offset_right = 180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.196078)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -27,16 +47,20 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+[node name="OptionsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_hm4m4")
+theme_override_colors/font_color = Color(0.270588, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 64
+text = "OPTIONS"
 
 [node name="VolumeLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Volume:"
 
 [node name="MainLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Main"
 
 [node name="MainSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
@@ -48,6 +72,7 @@ bus_name = "Master"
 
 [node name="MusicLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
@@ -59,6 +84,7 @@ bus_name = "Music"
 
 [node name="SFXLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
@@ -68,9 +94,17 @@ step = 0.001
 script = ExtResource("3_hm4m4")
 bus_name = "SFX"
 
-[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="BackTextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Back
-"
+texture_normal = ExtResource("4_lfjc7")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]
+[node name="BackLabel" type="Label" parent="CenterContainer/VBoxContainer/BackTextureButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 56.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackTextureButton" to="." method="_on_back_texture_button_pressed"]
