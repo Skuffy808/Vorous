@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=17 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://cwy01wfbsb1vk" path="res://scenes/parallax_background.tscn" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bbqe67ohrkl2q" path="res://scripts/death_menu.gd" id="7_dinhu"]
 [ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="8_kvuet"]
 [ext_resource type="Texture2D" uid="uid://chqrou6jhwg36" path="res://assets/uiHeart.png" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://cemmh02lcoq00" path="res://assets/audio/sfx/characterScreaming.mp3" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cdyy4d7qlejyc" path="res://scenes/killzone.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
@@ -435,6 +436,7 @@ limit_bottom = 360
 script = ExtResource("3_u5sy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="DeathMenu" type="Node2D" parent="CanvasLayer"]
 visible = false
@@ -451,6 +453,7 @@ offset_right = 500.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0.196078)
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/DeathMenu/ColorRect"]
@@ -509,6 +512,14 @@ theme = ExtResource("4_lbhrr")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "MENU"
 
+[node name="Timer" type="Timer" parent="CanvasLayer/DeathMenu"]
+wait_time = 0.3
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/DeathMenu"]
+stream = ExtResource("10_kvuet")
+bus = &"SFX"
+
 [node name="Stopwatch" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("4_iywne")
 
@@ -550,3 +561,5 @@ position = Vector2(0, 360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
+
+[connection signal="timeout" from="CanvasLayer/DeathMenu/Timer" to="CanvasLayer/DeathMenu" method="_on_timer_timeout"]
