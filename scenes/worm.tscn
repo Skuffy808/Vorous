@@ -1,10 +1,14 @@
-[gd_scene load_steps=22 format=4 uid="uid://dnsh31yhrttin"]
+[gd_scene load_steps=24 format=4 uid="uid://dnsh31yhrttin"]
 
 [ext_resource type="Script" uid="uid://b3idjy5hsfcdx" path="res://scripts/worm.gd" id="1_lley5"]
+[ext_resource type="PackedScene" uid="uid://cdyy4d7qlejyc" path="res://scenes/killzone.tscn" id="2_aodjv"]
 [ext_resource type="Texture2D" uid="uid://l5q5xsekpb1o" path="res://assets/worm/wormWall.png" id="2_tdamb"]
 [ext_resource type="Texture2D" uid="uid://clt2yqf80mg1c" path="res://assets/worm/wormTongueAttack1.png" id="3_aodjv"]
 [ext_resource type="Texture2D" uid="uid://ch8e3q2mj8wg0" path="res://assets/worm/wormMain.png" id="3_tdamb"]
 [ext_resource type="Texture2D" uid="uid://bjws1epxiv7dk" path="res://assets/worm/wormTongueIdle.png" id="3_ttset"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7fd0"]
+size = Vector2(12.1823, 13.942)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aodjv"]
 texture = ExtResource("2_tdamb")
@@ -138,6 +142,13 @@ animations = [{
 
 [node name="Worm" type="Node2D"]
 script = ExtResource("1_lley5")
+
+[node name="Killzone" parent="." instance=ExtResource("2_aodjv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(26, 15)
+scale = Vector2(3.6118, 82.6283)
+shape = SubResource("RectangleShape2D_i7fd0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
