@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Vorous"
-run/main_scene="uid://dbihew8l1tlgy"
+run/main_scene="uid://c87h5c6o5fgvt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
