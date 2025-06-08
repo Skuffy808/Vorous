@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $"../Player"
 
 var platforms = []
-var spawn_x = 0  # This is the X position where the next platform will spawn
+var spawn_x = 1152  # This is the X position where the next platform will spawn
 
 const PLATFORM_WIDTH = 1152
 const PLATFORM_Y = 0  # Fixed vertical position for all platforms

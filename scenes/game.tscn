@@ -24,12 +24,14 @@ z_index = 1
 position = Vector2(59, 149)
 
 [node name="PlatformManager" type="Node2D" parent="."]
-position = Vector2(0, 310)
+position = Vector2(0, 195)
 script = ExtResource("2_lbhrr")
+
+[node name="Cliff1" parent="PlatformManager" instance=ExtResource("12_dinhu")]
 
 [node name="Player" parent="." instance=ExtResource("1_lnu2h")]
 z_index = 1
-position = Vector2(319, 16)
+position = Vector2(320, 109)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(-1, -1)
@@ -154,8 +156,5 @@ position = Vector2(0, 360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
-
-[node name="Cliff1" parent="." instance=ExtResource("12_dinhu")]
-position = Vector2(0, 310)
 
 [connection signal="timeout" from="CanvasLayer/DeathMenu/Timer" to="CanvasLayer/DeathMenu" method="_on_timer_timeout"]

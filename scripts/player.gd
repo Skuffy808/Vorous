@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var speed = 200.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -500.0
 var jumped = false
 
 func _physics_process(delta: float) -> void:
