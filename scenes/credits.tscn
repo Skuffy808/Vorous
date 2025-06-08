@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://y187sbw561dx"]
+[gd_scene load_steps=6 format=3 uid="uid://y187sbw561dx"]
 
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="1_0ctdu"]
 [ext_resource type="Script" uid="uid://dksadmjslbklm" path="res://scripts/credits.gd" id="2_2ckv8"]
 [ext_resource type="Texture2D" uid="uid://dugbgubpe437j" path="res://assets/background/Background-0.png" id="3_2fbfq"]
 [ext_resource type="PackedScene" uid="uid://dhr8pf2btgxph" path="res://scenes/Platforms/platformCave1.tscn" id="4_8gwij"]
+[ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="5_8gwij"]
 
 [node name="Credits" type="Control"]
 texture_filter = 1
@@ -55,32 +56,30 @@ offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="OptionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
 text = "CREDITS"
-horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Roles" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Skuffy - Lead dev, programmer
+Slavok - Audio
+Guardian - Creative lead, artist, game designer
+V - Artist, UI/UX "
 
-[node name="Names" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="BackTextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "SKUFFY
+texture_normal = ExtResource("5_8gwij")
 
+[node name="BackLabel" type="Label" parent="VBoxContainer/BackTextureButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 56.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
 
-JOHN DOE"
-horizontal_alignment = 2
-
-[node name="Roles" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "PROGRAMMING
-DUMB SHIT
-
-LAWYER"
-
-[node name="BackButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Back
-"
-
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackTextureButton" to="." method="_on_back_texture_button_pressed"]
