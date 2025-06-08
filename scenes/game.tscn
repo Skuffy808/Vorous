@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=13 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://cwy01wfbsb1vk" path="res://scenes/parallax_background.tscn" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dipmprigxnjfv" path="res://scripts/stopwatch.gd" id="4_iywne"]
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://bbqe67ohrkl2q" path="res://scripts/death_menu.gd" id="7_dinhu"]
-[ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="8_kvuet"]
 [ext_resource type="AudioStream" uid="uid://cemmh02lcoq00" path="res://assets/audio/sfx/characterScreaming.mp3" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cdyy4d7qlejyc" path="res://scenes/killzone.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://cnraao5olmaud" path="res://scenes/Platforms/platformCliff1.tscn" id="12_dinhu"]
@@ -44,76 +43,6 @@ layer = 10
 [node name="DeathMenu" type="Node2D" parent="CanvasLayer"]
 visible = false
 script = ExtResource("7_dinhu")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DeathMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 140.0
-offset_right = 500.0
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.588235)
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/DeathMenu/ColorRect"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -58.0
-offset_right = 94.0
-offset_bottom = 58.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer"]
-layout_mode = 2
-
-[node name="OptionsLabel" type="Label" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("4_lbhrr")
-theme_override_colors/font_color = Color(0.270588, 0.0823529, 0.0823529, 1)
-theme_override_font_sizes/font_size = 64
-text = "YOU DIED"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="RespawnTextureButton" type="TextureButton" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kvuet")
-
-[node name="RespawnLabel" type="Label" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer/HBoxContainer/RespawnTextureButton"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 22.0
-offset_right = 56.0
-offset_bottom = 35.0
-theme = ExtResource("4_lbhrr")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Respawn"
-
-[node name="MenuTextureButton" type="TextureButton" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kvuet")
-
-[node name="MenuLabel" type="Label" parent="CanvasLayer/DeathMenu/ColorRect/CenterContainer/VBoxContainer/HBoxContainer/MenuTextureButton"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 22.0
-offset_right = 56.0
-offset_bottom = 35.0
-theme = ExtResource("4_lbhrr")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "MENU"
 
 [node name="Timer" type="Timer" parent="CanvasLayer/DeathMenu"]
 wait_time = 0.3

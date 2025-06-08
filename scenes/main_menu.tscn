@@ -90,11 +90,14 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "OPTIONS"
 
-[node name="CreditsTextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsTextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("4_wu84c")
 
-[node name="CreditsLabel" type="Label" parent="CenterContainer/VBoxContainer/CreditsTextureButton"]
+[node name="CreditsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/CreditsTextureButton"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 22.0
@@ -104,6 +107,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Credits
 "
 
+[node name="ControlsTextureButton2" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_wu84c")
+
+[node name="CreditsLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/ControlsTextureButton2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 56.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CONTROLS"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/OptionsTextureButton" to="." method="_on_options_texture_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/CreditsTextureButton" to="." method="_on_credits_texture_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/ControlsTextureButton2" to="." method="_on_controls_texture_button_2_pressed"]
