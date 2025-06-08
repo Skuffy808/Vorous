@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbihew8l1tlgy"]
+[gd_scene load_steps=7 format=3 uid="uid://dbihew8l1tlgy"]
 
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://c4ejo3wll8udk" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://dhr8pf2btgxph" path="res://scenes/Platforms/platformCave1.tscn" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://dugbgubpe437j" path="res://assets/background/Background-0.png" id="3_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://b5hbdompaoagl" path="res://assets/titleCardVorous.png" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="4_wu84c"]
 
@@ -16,6 +17,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bqqt6")
 script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_rtw2f")
 
 [node name="Cave1" parent="." instance=ExtResource("3_8ln24")]
 z_index = -1
@@ -34,7 +41,7 @@ offset_right = 180.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.196078)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

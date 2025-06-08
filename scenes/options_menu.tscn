@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://beedokpp6n7cc"]
+[gd_scene load_steps=7 format=3 uid="uid://beedokpp6n7cc"]
 
 [ext_resource type="Script" uid="uid://6k8u6dj3241g" path="res://scripts/options_menu.gd" id="1_ijpji"]
 [ext_resource type="Theme" uid="uid://bpac6yxly53yc" path="res://theme.tres" id="1_lfjc7"]
+[ext_resource type="Texture2D" uid="uid://dugbgubpe437j" path="res://assets/background/Background-0.png" id="3_dhn0l"]
 [ext_resource type="Script" uid="uid://dfpju7kxd2veh" path="res://scripts/voloume_slider.gd" id="3_hm4m4"]
 [ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="4_lfjc7"]
 [ext_resource type="PackedScene" uid="uid://dhr8pf2btgxph" path="res://scenes/Platforms/platformCave1.tscn" id="5_3xsyx"]
@@ -16,6 +17,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lfjc7")
 script = ExtResource("1_ijpji")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_dhn0l")
 
 [node name="Cave1" parent="." instance=ExtResource("5_3xsyx")]
 z_index = -1
@@ -34,7 +41,7 @@ offset_right = 180.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.196078)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -49,18 +56,18 @@ layout_mode = 2
 
 [node name="OptionsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.270588, 0.0823529, 0.0823529, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "OPTIONS"
 
 [node name="VolumeLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Volume:"
 
 [node name="MainLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Main"
 
 [node name="MainSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
@@ -72,7 +79,7 @@ bus_name = "Master"
 
 [node name="MusicLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]
@@ -84,7 +91,7 @@ bus_name = "Music"
 
 [node name="SFXLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="CenterContainer/VBoxContainer"]

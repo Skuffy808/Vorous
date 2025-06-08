@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctho4ks2kncyt"]
+[gd_scene load_steps=16 format=3 uid="uid://ctho4ks2kncyt"]
 
 [ext_resource type="PackedScene" uid="uid://cwy01wfbsb1vk" path="res://scenes/parallax_background.tscn" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dx3donnd0lfk1" path="res://scenes/player.tscn" id="1_lnu2h"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://xy2kjly8tpq0" path="res://assets/platformBaseTileset16x.png" id="5_u5sy4"]
 [ext_resource type="Script" uid="uid://bbqe67ohrkl2q" path="res://scripts/death_menu.gd" id="7_dinhu"]
 [ext_resource type="Texture2D" uid="uid://dojqb00ffo3lc" path="res://assets/button.png" id="8_kvuet"]
-[ext_resource type="Texture2D" uid="uid://chqrou6jhwg36" path="res://assets/uiHeart.png" id="9_0tnpc"]
 [ext_resource type="AudioStream" uid="uid://cemmh02lcoq00" path="res://assets/audio/sfx/characterScreaming.mp3" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cdyy4d7qlejyc" path="res://scenes/killzone.tscn" id="10_vtaks"]
 
@@ -407,8 +406,6 @@ sources/1 = SubResource("TileSetAtlasSource_u5sy4")
 [node name="Game" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_gee14")]
-offset = Vector2(0, -64)
-transform = Transform2D(1, 0, 0, 1, 0, -64)
 
 [node name="Worm" parent="." instance=ExtResource("1_p57ef")]
 z_index = 1
@@ -454,7 +451,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0.196078)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/DeathMenu/ColorRect"]
 texture_filter = 1
@@ -533,7 +530,7 @@ offset_right = 640.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.196078)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="Label" type="Label" parent="CanvasLayer/Stopwatch"]
 texture_filter = 1
@@ -543,18 +540,10 @@ offset_right = 337.0
 offset_bottom = 31.0
 size_flags_horizontal = 0
 theme = ExtResource("4_lbhrr")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "11:11:23"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Stopwatch"]
-texture_filter = 1
-offset_left = 276.0
-offset_top = 8.0
-offset_right = 292.0
-offset_bottom = 24.0
-texture = ExtResource("9_0tnpc")
 
 [node name="Killzone" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(0, 360)
