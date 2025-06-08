@@ -1,26 +1,44 @@
-extends Node
+extends Node2D
 
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player = $"../Player"
 
-const PLATFORM_1 = preload("res://scenes/Platforms/platform_1.tscn")
-const PLATFORM_2 = preload("res://scenes/Platforms/platform_2.tscn")
+var platforms = []
+var spawn_x = 0  # This is the X position where the next platform will spawn
 
-var spawn_new_pos := 640
+const PLATFORM_WIDTH = 1152
+const PLATFORM_Y = 0  # Fixed vertical position for all platforms
 
-func spawn_random_platform():
-	var platformRNG = randi_range(1, 10)
-	if platformRNG >= 6:
-		var new_platform = PLATFORM_1.instantiate()
-		new_platform.position.x = spawn_new_pos * 2
-		add_child(new_platform)
-	elif platformRNG <= 5:
-		var new_platform = PLATFORM_2.instantiate()
-		new_platform.position.x = spawn_new_pos * 2
-		add_child(new_platform)
+func _ready():
+	# Load all platform scenes from the folder
+	var dir = DirAccess.open("res://scenes/Platforms")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and file_name.ends_with(".tscn"):
+				platforms.append(load("res://scenes/Platforms/" + file_name))
+			file_name = dir.get_next()
+		dir.list_dir_end()
 	else:
-		print("WHAT IN THE ACTUAL FUCK HAPPENED")
-		
+		print("Failed to open platforms directory!")
+
+	spawn_platform()  # Spawn the first platform at spawn_x = 0
+
+func spawn_platform():
+	if platforms.size() == 0:
+		print("No platforms loaded!")
+		return
+
+	var idx = randi() % platforms.size()
+	var platform_instance = platforms[idx].instantiate()
+
+	# **Here is where the spawn position is set:**
+	platform_instance.position = Vector2(spawn_x, PLATFORM_Y)
+	add_child(platform_instance)
+
+	spawn_x += PLATFORM_WIDTH  # Move spawn_x right for next platform
+
 func _process(delta):
-	if player.position.x > spawn_new_pos:
-		spawn_random_platform()
-		spawn_new_pos += 640
+	# If player is close to the edge, spawn another platform
+	if player.position.x > spawn_x - PLATFORM_WIDTH * 2:
+		spawn_platform()

@@ -4,7 +4,7 @@ extends Node2D
 @onready var head_sprite_2d: Sprite2D = $HeadSprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 200.0
+const SPEED = 100.0
 const FOLLOW_SPEED = 1.0
 const ROTATE_SPEED = 0.1
 
